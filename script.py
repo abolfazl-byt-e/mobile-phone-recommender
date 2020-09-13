@@ -18,3 +18,6 @@ for box in boxes:
             if spans[i].text == "حافظه داخلی":
                 memory = spans[i+1].text.strip().strip(" گیگابایت")
                 print(memory)
+            if spans[i].text == "مقدار RAM":
+                ram = spans[i+1].text.strip().strip(" گیگابایت")
+                print(ram)
