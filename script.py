@@ -7,4 +7,9 @@ soup = BeautifulSoup(r.content, 'html.parser')
 boxes = soup.find_all("div", attrs={"class":"c-product-box"})
 for box in boxes:
     url_box = "https://www.digikala.com" + box.a["href"]
-    print(url_box)
+    r = requests.get(url_box)
+    soup = BeautifulSoup(r.content, "html.parser")
+    boxes_mobile = soup.find_all("section", attrs={"class":"c-product__info"})
+    for mob in boxes_mobile:
+        title = mob.h1
+        print(title.text.strip())
