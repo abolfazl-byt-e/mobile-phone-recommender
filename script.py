@@ -9,7 +9,12 @@ for box in boxes:
     url_box = "https://www.digikala.com" + box.a["href"]
     r = requests.get(url_box)
     soup = BeautifulSoup(r.content, "html.parser")
-    boxes_mobile = soup.find_all("section", attrs={"class":"c-product__info"})
-    for mob in boxes_mobile:
-        title = mob.h1
-        print(title.text.strip())
+    boxes_mobile = soup.find_all("div", attrs={"class":"c-params"})
+    for detail in boxes_mobile:
+        title = detail.h2.span.text.strip()
+        print(title)
+        spans = detail.find_all("span", attrs={"class":"block"})
+        for i in range(len(spans)):
+            if spans[i].text == "حافظه داخلی":
+                memory = spans[i+1].text.strip().strip(" گیگابایت")
+                print(memory)
