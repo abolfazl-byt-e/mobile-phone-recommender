@@ -14,4 +14,4 @@
 <p>2 - python -m venv venv</p>
 <p>3 - source venv/bin/activate</p>
 <p>4 - pip install -r requirements.txt</p>
-<p>5 - python <script-name.py></p>
+<p>5 - python {script-name.py}</p>
